@@ -1,0 +1,94 @@
+.quiz {
+  display: flex;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 30px;
+  min-height: 80vh;
+}
+
+.quiz .quiz-container {
+  margin-bottom: 100px;
+  margin-top: 120px;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 70px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.quiz h1 {
+  font-size: 35px;
+  text-align: center;
+}
+
+.quiz #question-container {
+  margin-bottom: 20px;
+}
+
+.quiz #question-text {
+  margin-top: 3rem;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.quiz #answer-buttons {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 10px;
+}
+
+.quiz #answer-buttons button {
+  min-height: 60px;
+  min-width: 70px;
+  height: auto;
+  width: auto;
+}
+
+.quiz button {
+  height: 40px;
+  font-size: 20px;
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quiz button:hover {
+  background-color: #d2d2d2;
+}
+
+.quiz #controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz #timer-container {
+  display: flex;
+  align-items: center;
+}
+
+.quiz #timer-text {
+  font-size: 18px;
+}
+
+.quiz #timer {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* Responsif untuk HP */
+@media screen and (max-width: 700px) {
+  .quiz {
+    min-height: auto; /* Hindari menutupi footer */
+    padding: 10px;
+  }
+
+  .quiz .quiz-container {
+    width: 100%;
+    padding: 30px;
+  }
+}

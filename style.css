@@ -1,0 +1,274 @@
+/* #374735 warna font */
+/* #e0e0e0 background */
+/* #99755c warna font 2 */
+
+* {
+  text-decoration: none;
+  margin: 0;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #e0e0e0;
+  color: #374735;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 7%;
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #707294;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* pojok kiri (judul) */
+.navbar .navbar-logo {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #374735;
+  font-family: "westgate", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* pojok kanan */
+.navbar .navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar-nav a {
+  color: #374735;
+  font-size: 1.2rem;
+  margin: 1rem;
+  font-weight: 600;
+  padding-left: 3rem;
+  font-family: "Open Sans", serif;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #e2e6e7;
+}
+
+/* home */
+
+.pembuka {
+  padding: 11rem 2rem 1rem 1.4rem;
+  text-align: center;
+}
+
+.pembuka .isi h3 {
+  font-family: "Abril Fatface", serif;
+  color: #99755c;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.pembuka .isi p {
+  margin-top: 1.1rem;
+  font-size: 1.2rem;
+}
+
+/* penemu atom */
+
+.penemu {
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 0;
+}
+
+.penemu .penjelasan {
+  padding-left: 1.8rem;
+}
+.penemu h3 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 300;
+  font-size: 2rem;
+  color: #99755c;
+}
+
+.penemu p {
+  font-size: 1.3rem;
+  margin-top: 0.3rem;
+}
+
+/* struktur atom */
+
+.strukturatom {
+  padding-top: 7.5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.strukturatom h3 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 300;
+  font-size: 2.5rem;
+  color: #99755c;
+}
+
+.strukturatom img {
+  margin-top: 2rem;
+  height: 400px;
+  width: 550px;
+}
+
+.strukturatom p {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* teori teori */
+.teori {
+  padding-top: 7rem;
+}
+
+.teori h2 {
+  color: #99755c;
+  font-family: "Abril Fatface", serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 2.6rem;
+}
+
+.teori .row {
+  margin-top: 3rem;
+}
+
+.teori .row .teori-list {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.teori .row .teori-list img {
+  height: 300px;
+  width: 300px;
+}
+
+.teori .row .teori-list h3 {
+  color: #374735;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.teori .row .teori-list p {
+  margin-top: -0.8rem;
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* latihan soal */
+.latihan {
+  text-align: center;
+}
+
+.latihan h2 {
+  color: #99755c;
+  font-family: "Abril Fatface", serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 2.6rem;
+}
+
+.latihan p {
+  text-align: center;
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.latihan .tombol {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background-color: #99755c;
+  color: #e0e0e0;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+/* footer */
+footer {
+  border-top: 1px solid #707294;
+  background-color: #e0e0e0;
+  text-align: center;
+  padding: 2rem;
+}
+
+footer .social {
+  padding: 1rem;
+}
+
+footer .social a {
+  color: #374735;
+  margin: 1rem;
+}
+
+footer .social a:hover {
+  color: rgb(45, 103, 154);
+}
+
+footer .links a {
+  color: #374735;
+  margin: 1rem;
+}
+
+footer .links a:hover {
+  color: rgb(45, 103, 154);
+}
+
+footer .credit {
+  color: #374735;
+  font-size: 0.8rem;
+}
+
+/* madia queris */
+
+/* mobile/hp */
+@media (max-width: 880px) {
+  html {
+    font-size: 50%;
+  }
+
+  .navbar .navbar-nav {
+    display: none;
+  }
+
+  .penemu {
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .penemu img {
+    max-height: 220px;
+    max-width: 300px;
+  }
+
+  .strukturatom {
+    flex-wrap: wrap;
+  }
+
+  .strukturatom img {
+    max-height: 220px;
+    max-width: 300px;
+  }
+
+  .teori img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
