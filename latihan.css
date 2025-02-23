@@ -103,6 +103,12 @@ body {
 }
 
 /* Responsif untuk HP */
+@media (max-width: 1400px) {
+  .back .tombol {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .quiz {
     min-height: auto; /* Hindari menutupi footer */
@@ -112,5 +118,9 @@ body {
   .quiz .quiz-container {
     width: 100%;
     padding: 30px;
+  }
+
+  .back .tombol {
+    display: inline;
   }
 }

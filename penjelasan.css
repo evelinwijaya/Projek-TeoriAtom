@@ -73,6 +73,11 @@
     align-items: center;
   }
 
+  .modelatom img {
+    max-height: 220px;
+    max-width: 300px;
+  }
+
   .penjelasan .tombol {
     display: inline;
   }
