@@ -76,6 +76,7 @@
   .modelatom img {
     max-height: 220px;
     max-width: 300px;
+    align-items: center;
   }
 
   .penjelasan .tombol {
