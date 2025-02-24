@@ -73,9 +73,14 @@
     align-items: center;
   }
 
+  .penjelasan .modelatom {
+    align-items: center;
+    justify-content: center;
+  }
+
   .penjelasan .modelatom img {
-    max-height: 220px;
-    max-width: 300px;
+    max-height: 100px;
+    max-width: 180px;
     align-items: center;
   }
 
