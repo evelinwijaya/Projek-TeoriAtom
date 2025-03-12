@@ -1,5 +1,5 @@
-// Define an array of quiz questions
 const quizQuestions = [
+  //variabel yang menyimpan daftar pertanyaan
   {
     question: "Siapa Penemu Atom Pertama Kali?",
     options: [
@@ -38,97 +38,118 @@ const quizQuestions = [
   },
 ];
 
-// Variables to track quiz state
 let currentQuestionIndex = 0;
+// Variabel ini menyimpan indeks pertanyaan yang sedang ditampilkan dalam kuis.
+//Nilai awalnya 0, artinya kuis akan dimulai dari pertanyaan pertama dalam quizQuestions.
 let score = 0;
+//Variabel ini menyimpan skor pengguna selama kuis berlangsung.
+//Awalnya 0, dan akan bertambah jika pengguna menjawab dengan benar.
 let timeLeft = 60;
+//Variabel ini menyimpan sisa waktu untuk menyelesaikan kuis dalam hitungan detik.
+//Awalnya 60, yang berarti pengguna memiliki 60 detik untuk menyelesaikan kuis.
 let timerInterval;
+//Variabel ini akan digunakan untuk menyimpan ID interval timer yang menjalankan fungsi hitung mundur.
 
-// Function to start the quiz
 function startQuiz() {
-  // Hide the start button and display the first question
   document.getElementById("start-button").style.display = "none";
+  //Mencari elemen HTML dengan id="start-button".
+  //Mengubah gaya (style.display) menjadi "none", sehingga tombol menghilang setelah diklik.
   displayQuestion();
+  //Memanggil fungsi displayQuestion() yang bertugas menampilkan pertanyaan pertama dan opsi jawaban.
   startTimer();
+  //Memanggil fungsi startTimer() yang menjalankan hitungan mundur untuk kuis
 }
 
-// Function to display a question and its options
 function displayQuestion() {
   const currentQuestion = quizQuestions[currentQuestionIndex];
+  //mengambil pertanyaan
   const questionText = document.getElementById("question-text");
-  const answerButtons = document.getElementById("answer-buttons");
+  //questionText: Elemen tempat menampilkan teks pertanyaan.
+  const answerBttons = document.getElementById("answer-buttons");
+  //answerButtons: Elemen tempat menampilkan tombol-tombol jawaban
 
-  // Clear previous question and answer options
   questionText.innerHTML = "";
   answerButtons.innerHTML = "";
+  //Membersihkan pertanyaan dan pilihan jawaban sebelumnya sebelum menampilkan yang baru.
 
-  // Display the current question
   questionText.innerHTML = currentQuestion.question;
+  //mengambil pertanyaan
 
-  // Create answer buttons for each option
   currentQuestion.options.forEach((option) => {
     const button = document.createElement("button");
+    //membuat elemen <button> baru dalam dokumen HTML.
     button.innerText = option;
+    //mengatur opsi menjadi tombol
     button.classList.add("answer-button");
+    //menambahkan kelas "answer-button" ke tombol.
+    //Kelas ini dapat digunakan dalam CSS untuk memberi gaya pada tombol, seperti warna atau ukuran.
     answerButtons.appendChild(button);
+    //elemen HTML tempat semua tombol jawaban ditampilkan
 
-    // Add click event listener to check the answer
     button.addEventListener("click", function () {
       checkAnswer(option);
+      //Menambahkan event listener pada setiap tombol sehingga ketika diklik, akan memanggil fungsi checkAnswer(option) untuk memeriksa apakah jawaban benar atau salah
     });
   });
 }
 
-// Function to check the selected answer
 function checkAnswer(selectedOption) {
   const currentQuestion = quizQuestions[currentQuestionIndex];
+  //mengambil objek pertanyaan
 
-  // Check if the selected answer is correct
   if (selectedOption === currentQuestion.correctAnswer) {
+    //selectedOption adalah jawaban yang dipilih pengguna.
+    //currentQuestion.correctAnswer adalah jawaban yang benar untuk pertanyaan saat ini.
+    //Jika keduanya sama, berarti jawaban benar.
     score++;
+    //Jika jawaban benar, skor bertambah 1.
   }
 
-  // Move to the next question or end the quiz if all questions are answered
   currentQuestionIndex++;
+  //Menambah indeks pertanyaan agar pertanyaan selanjutnya bisa ditampilkan.
 
   if (currentQuestionIndex < quizQuestions.length) {
     displayQuestion();
   } else {
     endQuiz();
   }
+  //Jika masih ada pertanyaan (currentQuestionIndex < quizQuestions.length), maka panggil displayQuestion() untuk menampilkan pertanyaan berikutnya.
+  //Jika semua pertanyaan sudah dijawab, panggil endQuiz() untuk menyelesaikan kuis.
 }
 
-// Function to start the timer
 function startTimer() {
   timerInterval = setInterval(function () {
+    //setInterval() digunakan untuk menjalankan kode di dalamnya setiap 1 detik (1000 ms).
     timeLeft--;
+    //Setiap 1 detik, nilai timeLeft berkurang 1.
 
-    // Update the timer text
     document.getElementById("timer").textContent = timeLeft;
+    //Mengambil elemen HTML dengan id="timer".
+    //Mengubah isi elemen tersebut agar menampilkan waktu yang tersisa.
 
-    // End the quiz if time runs out
     if (timeLeft <= 0) {
       endQuiz();
+      //Jika timeLeft sudah 0 atau kurang, panggil endQuiz() untuk mengakhiri kuis
     }
   }, 1000);
 }
 
-// Function to end the quiz
 function endQuiz() {
-  // Stop the timer
   clearInterval(timerInterval);
+  //untuk menghentikan hitungan mundur
 
-  // Calculate the score percentage
   const scorePercentage = (score / quizQuestions.length) * 100;
+  //score adalah jumlah jawaban benar.
+  //quizQuestions.length adalah jumlah total pertanyaan
 
-  // Display the final score
   const questionContainer = document.getElementById("question-container");
   questionContainer.innerHTML = `
       <h2>Quiz Completed!</h2>
       <p>Your Score: ${score} out of ${quizQuestions.length}</p>
       <p>Score Percentage: ${scorePercentage}%</p>
     `;
+  //Mengambil elemen dengan id="question-container".
+  //Mengubah isi elemen tersebut dengan hasil akhir kuis, termasuk skor dan persentasenya.
 }
 
-// Add event listener to start the quiz when the start button is clicked
 document.getElementById("start-button").addEventListener("click", startQuiz);
